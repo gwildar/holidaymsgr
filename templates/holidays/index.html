@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+        Holiday Notification
+    </title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'holidays/css/bootstrap.css' %}" />
+  </head>
+  <body>
+
+      <div class="container">
+      <h1>Holiday Msgr</h1>  
+     
+      {% if error_message %}
+      <div class="alert alert-danger">
+          Can't authenticate 
+      </div>
+      {% endif %}
+
+    
+              
+              <form action="/holidays/" method="post" role="form">
+                  {% csrf_token %}
+
+                  {{ login.non_field_errors }}
+                  <div class="form-group {% if login.email.errors %} has-error{% endif %}">
+             
+                      <label for="id_email" class="control-label">Email address</label>
+                     {{ login.email }}
+                          <span class="help-block">{{ login.email.errors }}</span>
+                  </div>
+                  <div class="form-group {% if login.username.errors %} has-error{% endif %}">
+                 
+                      <label for="id_username" class="control-label">Your username</label>
+                      {{ login.username }}
+                           <span class="help-block">{{ login.username.errors }}</span>
+                  </div>
+                  <div class="form-group {% if login.password.errors %} has-error{% endif %}">
+                 
+                      <label for="id_password" class="control-label">Your password</label>
+                      {{ login.password }}
+                           <span class="help-block">{{ login.password.errors }}</span>
+                  </div>
+                 
+                <button type="submit" class="btn btn-primary">Login</button>
+              </form>
+   
+          </div>
+      </from>
+
+     
+
+  </div>
+  </body>
+</html>
+
+
+
+

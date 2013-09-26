@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>
+        Holiday Notification
+    </title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'holidays/css/bootstrap.css' %}" />
+    <style type="text/css">
+    .away-status H3 {
+        margin: 0;
+        padding: 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Holiday Messagr</h1>  
+      
+        {% if message_active %}
+        <div class="alert alert-success away-status">
+            <form action="/holidays/message.html" method="post" role="form" class="clearfix">
+               
+                <h3 class="pull-left">Your away message is active</h3>
+         
+                {% csrf_token %}
+                <input type="submit" name="deactivate" value="deactivate" class="btn btn-primary pull-right" />
+            </from>
+        </div>
+        {% else %}
+        <div class="alert alert-warning away-status">
+            <h3> Your away message is inactive</h3>
+        </div>
+        {% endif %}
+        <h2>Message</h2>
+
+        <form action="/holidays/message.html" method="post" role="form">
+            {% csrf_token %}
+            {{ mail.non_field_errors }}
+            <div class="form-group">
+                <div class="{% if mail.subject.errors %} has-error{% endif %}">
+                    <label for="id_subject" class="control-label">Subject</label>
+                    {{ mail.subject }}
+           
+                    <span class="help-block">{{ mail.subject.errors }}</span>
+                </div>
+                <span class="help-block"><em>e.g.</em> Out of office autoreply</span>
+            </div>
+            <div class="form-group">
+                <div class="{% if mail.message.errors %} has-error{% endif %}">
+                    <label for="id_message" class="control-label">Contents</label>
+                    {{ mail.message }}
+              
+                    <span class="help-block">{{ mail.message.errors }}</span>
+                </div>
+                <span class="help-block"><em>e.g.</em> I am out of the office until &lt;DAY&gt; &lt;DATE&gt;. If your message is urgent, please email &lt;SOMEONE&gt; (&lt;ADDRESS&gt;), otherwise I shall deal with your message on my return. Regards, &lt;YOURNAME&gt;</span>
+            
+            </div>
+            <input type="submit" name="set_away_message" value="Save and Activate" class="btn btn-primary" />
+        </from>
+    </div>
+</body>
+</html>
+
+
+
+
