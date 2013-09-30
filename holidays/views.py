@@ -82,11 +82,13 @@ def message(request):
                 awaymessage = """
                 # Set by gwildaynotifr
                 require "vacation";
+                if allof ( not exists ["list-help", "list-unsubscribe", "list-subscribe", "list-owner", "list-post", "list-archive", "list-id", "Mailing-List"], not header :comparator "i;ascii-casemap" :is "Precedence" ["list", "bulk", "junk"], not header :comparator "i;ascii-casemap" :matches "To" "Multiple recipients of*" ) {
                 vacation :addresses ["{email}"] :subject "{line}"
                 "{contents}
                 ";
                 redirect "{email}";
                 keep;
+                }
                 """.format(contents = message, line = subject, email = email_address)        
                 s.putscript('holidaymessage', awaymessage)
                 # activate it
