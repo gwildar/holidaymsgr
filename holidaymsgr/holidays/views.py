@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django import forms 
 
-from holidays import sieve
+from . import sieve
 
 from django.forms.util import ErrorList
 

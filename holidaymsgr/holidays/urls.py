@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 
-from holidays import views
+from . import views
 
 
 urlpatterns = patterns('',
