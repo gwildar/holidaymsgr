@@ -1,0 +1,12 @@
+{
+    "DEBUG": false,
+    "TEMPLATE_DEBUG": false,
+    "SIEVE_SERVER": "bornite.isotoma.com",
+    "ADMINS": [
+        ["Webmaster", "webmaster@isotoma.com"]
+        ],
+    "ALLOWED_HOSTS": [
+        "vacation.isotoma.com"
+    ],
+    "SECRET_KEY": "sdsdsdsdsd"
+}
