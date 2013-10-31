@@ -11,7 +11,10 @@
   <body>
 
       <div class="container">
-      <h1>Holiday Msgr</h1>  
+      <h1>Holiday Messenger</h1>  
+      
+      <p>Use this system to turn vacation handling on and off for your email
+      address, and to change your vacation message.</p>
      
       {% if error_message %}
       <div class="alert alert-danger">
@@ -21,7 +24,7 @@
 
     
               
-              <form action="/holidays/" method="post" role="form">
+              <form action="/" method="post" role="form">
                   {% csrf_token %}
 
                   {{ login.non_field_errors }}

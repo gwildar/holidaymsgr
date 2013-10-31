@@ -1,6 +1,6 @@
-===========
-holidaymsgr
-===========
+=================
+Holiday Messenger
+=================
 
 A Django application for managing vacation messages for Cyrus.
 
@@ -21,6 +21,15 @@ When you visit the site you will be asked for:
 
 Your email address is required because Cyrus itself doesn't know which
 addresses you receive mail at.
+
+The username and password should be your login credentials for Cyrus (these are
+what you put into your IMAP mail client).
+
+Once you have logged in, if your vacation message is not active you will be presented with a form asking for the subject and contents of your vacation message. You can then save and activate your message.
+
+If your vacation message is active, you will also have an option to deactivate
+it.
+
 
 Vacation processing
 ===================

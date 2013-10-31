@@ -5,23 +5,25 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+SIEVE_SERVER = "bornite.isotoma.com"
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'vacation',                      # Or path to database file if using sqlite3.
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#        'NAME': 'vacation',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'django',
-        'PASSWORD': 'blitza',
-        'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '5432',                      # Set to empty string for default.
-    }
-}
+#        'USER': 'django',
+#        'PASSWORD': 'blitza',
+#        'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+#        'PORT': '5432',                      # Set to empty string for default.
+#    }
+#}
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
@@ -86,7 +88,7 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '*ivd!%8j-=7r36ng^)rmeto(wj)#9)ylzd_hhrzv#x%+a)gs8x'
 
-SESSION_COOKIE_AGE = '3600'
+SESSION_COOKIE_AGE = 3600
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -120,7 +122,7 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
+    #'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -131,6 +133,7 @@ INSTALLED_APPS = (
     'holidaymsgr.holidays',
 )
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
 # A sample logging configuration. The only tangible logging
