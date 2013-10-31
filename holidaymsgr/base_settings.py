@@ -112,6 +112,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'holidaymsgr.holidays',
+    'gunicorn',
 )
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
