@@ -15,6 +15,7 @@ Installation
 
 $ virtualenv /var/local/sites/<sitename>
 $ source /var/local/sites/<sitename>/bin/activate
+$ pip install 
 
 Features
 ========

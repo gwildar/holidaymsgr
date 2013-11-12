@@ -1,5 +1,6 @@
 # Django settings for holidaymsgr project.
 
+import sys
 import os
 
 DEBUG = True
@@ -9,6 +10,9 @@ SIEVE_SERVER = "imap.example.com"
 
 
 from patch_settings import *
+
+GUNICORN['COMMAND'] = os.path.realpath(sys.argv[0])
+
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),

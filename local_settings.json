@@ -1,0 +1,28 @@
+{
+    "DEBUG": false,
+    "TEMPLATE_DEBUG": false,
+    "SIEVE_SERVER": "bornite.isotoma.com",
+    "ADMINS": [
+        ["Webmaster", "webmaster@isotoma.com"]
+        ],
+    "ALLOWED_HOSTS": [
+        "vacation.isotoma.com"
+    ],
+    "SECRET_KEY": "sdsdsdsdsd",
+    "GUNICORN": {
+        "USER": "daemon",
+        "ACCESS_LOG": "/var/log/holidaymsgr/access_log",
+        "ERROR_LOG": "/var/log/holidaymsgr/error_log",
+        "PORT": "999999"
+    },
+    "WEBSERVER" :{
+        "SERVER_NAME": "vacation.isotoma.com",
+        "ACCESS_LOG": "/var/log/apache2/vacation.isotoma.com.access_log",
+        "ERROR_LOG": "/var/log/apache2/vacation.isotoma.com.error_log",
+        "SSL": {
+            "CERT": "/etc/ssl/certs/isotoma.com.crt",
+            "KEY": "/etc/ssl/private/isotoma.com.key",
+            "CHAIN": "/etc/ssl/certs/isotoma.com.crt.chain"
+        }
+    }
+}
