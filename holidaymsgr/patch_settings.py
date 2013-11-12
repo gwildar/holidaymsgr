@@ -19,14 +19,12 @@ def json_patch(path):
 
 def patch_settings():
     env_settings = os.environ.get('JSON_SETTINGS', None)
-    if env_settings is not None:
-        json_patch(env_settings)
-    else:
-        for p in sys.path:
-            path = os.path.join(p, "local_settings.json")
-            if os.path.exists(path):
-                json_patch(path)
-                break
+    if env_settings is None:
+        # we only use the default if it exists
+        env_settings = os.path.join(sys.prefix, "etc", "settings.json")
+        if not os.path.exists(env_settings):
+            return
+    json_patch(env_settings)
 
 patch_settings()
 

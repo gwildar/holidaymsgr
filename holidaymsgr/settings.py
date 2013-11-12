@@ -8,11 +8,9 @@ TEMPLATE_DEBUG = DEBUG
 
 SIEVE_SERVER = "imap.example.com"
 
-
 from patch_settings import *
 
-GUNICORN['COMMAND'] = os.path.realpath(sys.argv[0])
-
+GUNICORN['COMMAND'] = os.path.join(sys.prefix, "bin", "django")
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
