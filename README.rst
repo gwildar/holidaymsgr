@@ -10,6 +10,12 @@ unset vacation message handling, and change your vacation message.
 The application communicates with Cyrus (and potentially other mail systems)
 using Sieve (RFC5228) scripts and a ManageSieve (RFC5804) client.
 
+Installation
+============
+
+$ virtualenv /var/local/sites/<sitename>
+$ source /var/local/sites/<sitename>/bin/activate
+
 Features
 ========
 
