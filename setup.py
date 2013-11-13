@@ -6,7 +6,7 @@ setup(
     name='holidaymsgr',
     version=version,
     packages=find_packages(exclude=['ez_setup']),
-    include_package_data=True,
+    package_data={'holidaymsgr': ['stack_templates/apache/holidaymsgr.conf', 'stack_templates/upstart/holidaymsgr.conf']},
     zip_safe=False,
     install_requires=[
         'setuptools',
