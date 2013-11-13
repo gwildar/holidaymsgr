@@ -7,7 +7,6 @@ setup(
     version=version,
     packages=find_packages(exclude=['ez_setup']),
     include_package_data=True,
-    package_data={'holidaymsgr': ['holidaymsgr/stack_templates']},
     zip_safe=False,
     install_requires=[
         'setuptools',
