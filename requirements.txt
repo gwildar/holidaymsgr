@@ -2,3 +2,7 @@ Django
 gunicorn
 psycopg2
 Jinja2
+
+-e git://github.com/isotoma/django-json-settings#egg=json_settings
+-e git://github.com/isotoma/django-stackhelper#egg=stackhelper
+-e .
