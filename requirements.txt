@@ -1,7 +1,8 @@
 Django
 gunicorn
-psycopg2
 Jinja2
+mock
+psycopg2
 sievelib
 
 -e git://github.com/isotoma/django-json-settings#egg=json_settings

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+        Holiday Notification Test
+    </title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'holidays/css/bootstrap.css' %}" />
+  </head>
+  <body>
+
+      <div class="container">
+      <h1>Holiday Messenger Test</h1>  
+      
+      <p>Use this system to test vacation handling for your email address.</p>
+     
+      {% if error_message %}
+      <div class="alert alert-danger">
+          Can't authenticate 
+      </div>
+      {% endif %}
+
+    
+              
+              <form action="/test_login" method="post" role="form">
+                  {% csrf_token %}
+
+                  {{ test_login.non_field_errors }}
+                  <div class="form-group {% if test_login.email.errors %} has-error{% endif %}">
+             
+                      <label for="id_email" class="control-label">Email address</label>
+                     {{ test_login.email }}
+                          <span class="help-block">{{ test_login.email.errors }}</span>
+                  </div>
+                  <div class="form-group {% if test_login.username.errors %} has-error{% endif %}">
+                 
+                      <label for="id_username" class="control-label">Your username</label>
+                      {{ test_login.username }}
+                           <span class="help-block">{{ test_login.username.errors }}</span>
+                  </div>
+                  <div class="form-group {% if test_login.password.errors %} has-error{% endif %}">
+                 
+                      <label for="id_password" class="control-label">Your password</label>
+                      {{ test_login.password }}
+                           <span class="help-block">{{ test_login.password.errors }}</span>
+                  </div>
+                 
+                <button type="submit" class="btn btn-primary">Test Login</button>
+              </form>
+   
+          </div>
+      </form>
+
+     
+
+  </div>
+  </body>
+</html>

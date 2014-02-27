@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+        Holiday Notification Test
+    </title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'holidays/css/bootstrap.css' %}" />
+  </head>
+  <body>
+
+      <div class="container">
+      <h1>Holiday Messenger Test</h1>  
+      
+      <ul>
+      {% for test_name, result in tests.items %}
+      <li>{{test_name}}: {{result}}</li>
+      {% endfor %}
+      </ul>
+
+  </div>
+  </body>
+</html>

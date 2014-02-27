@@ -3,6 +3,13 @@
     "TEMPLATE_DEBUG": false,
     "SIEVE_SERVER_HOST": "bornite.isotoma.com",
     "SIEVE_SERVER_PORT": 2000,
+    "IMAP_SERVER_HOST": "harzer.cheeseonhost.com",
+    "IMAP_SERVER_PORT": 993,
+    "IMAP_SERVER_SSL": true,
+    "SMTP_SERVER_HOST": "harzer.cheeseonhost.com",
+    "SMTP_SERVER_PORT": 587,
+    "SMTP_SERVER_STARTTLS": true,
+    "SMTP_SERVER_SSL": false,
     "ADMINS": [
         ["Webmaster", "webmaster@isotoma.com"]
         ],
