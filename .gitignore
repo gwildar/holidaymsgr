@@ -16,8 +16,10 @@ var
 sdist
 develop-eggs
 .installed.cfg
+include
 lib
 lib64
+local
 __pycache__
 
 # Installer logs
