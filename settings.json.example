@@ -1,7 +1,8 @@
 {
     "DEBUG": false,
     "TEMPLATE_DEBUG": false,
-    "SIEVE_SERVER": "bornite.isotoma.com",
+    "SIEVE_SERVER_HOST": "bornite.isotoma.com",
+    "SIEVE_SERVER_PORT": 2000,
     "ADMINS": [
         ["Webmaster", "webmaster@isotoma.com"]
         ],

@@ -20,7 +20,7 @@
       
         {% if message_active %}
         <div class="alert alert-success away-status">
-            <form action="/message" method="post" role="form" class="clearfix">
+            <form action="" method="post" role="form" class="clearfix">
                
                 <h3 class="pull-left">Your away message is active</h3>
          
@@ -35,7 +35,7 @@
         {% endif %}
         <h2>Message</h2>
 
-        <form action="/message" method="post" role="form">
+        <form action="" method="post" role="form">
             {% csrf_token %}
             {{ mail.non_field_errors }}
             <div class="form-group">
