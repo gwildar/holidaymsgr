@@ -22,7 +22,7 @@ if allof (
     not header :comparator "i;ascii-casemap" :matches "To" "Multiple recipients of*" )
 {{
     vacation
-        :days 14
+        :days {days}
         :subject {subject}
         :handle {handle}
         :addresses [{email}]

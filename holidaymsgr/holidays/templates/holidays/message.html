@@ -57,6 +57,16 @@
                 <span class="help-block"><em>e.g.</em> I am out of the office until &lt;DAY&gt; &lt;DATE&gt;. If your message is urgent, please email &lt;SOMEONE&gt; (&lt;ADDRESS&gt;), otherwise I shall deal with your message on my return. Regards, &lt;YOURNAME&gt;</span>
             
             </div>
+            <div class="form-group">
+                <div class="{% if mail.days.errors %} has-error{% endif %}">
+                    <label for="id_days" class="control-label">Number of days</label>
+                    {{ mail.days }}
+              
+                    <span class="help-block">{{ mail.days.errors }}</span>
+                </div>
+                <span class="help-block">The number of days the message should be active for.</span>
+            
+            </div>
             <input type="submit" name="set_away_message" value="Save and Activate" class="btn btn-primary" />
         </from>
     </div>

@@ -45,43 +45,52 @@ class TestMakeScript(unittest.TestCase):
         email_address = u'nobody@isotomadev.com'
         subject = u'My subject'
         message = u'Go away'
-        template = u'{email}\n{subject}\n{contents}'
+        days = 1
+        template = u'{email}\n{subject}\n{contents}\n{days}'
         script = views._make_script(email_address,
                                     subject,
                                     message,
+                                    days,
                                     template=template)
         self.assertEqual(script.split(u'\n'),
                          [u'"nobody@isotomadev.com"',
                           u'"My subject"',
-                          u'"Go away"'])
+                          u'"Go away"',
+                          u'1'])
 
     def test_make_script_escapes(self):
         email_address = u'"no\\"body"@isotomadev.com'
         subject = u'"My \\"subject\\""'
         message = u'"Go away"'
-        template = u'{email}\n{subject}\n{contents}'
+        days = 1
+        template = u'{email}\n{subject}\n{contents}\n{days}'
         script = views._make_script(email_address,
                                     subject,
                                     message,
+                                    days,
                                     template=template)
         self.assertEqual(script.split(u'\n'),
                          [u'"\\"no\\\\\\"body\\"@isotomadev.com"',
                           u'"\\"My \\\\\\"subject\\\\\\"\\""',
-                          u'"\\"Go away\\""'])
+                          u'"\\"Go away\\""',
+                          u'1'])
 
     def test_make_script_unicode(self):
         email_address = u'nob\u2603dy@isotomadev.com'
         subject = u'My subject \u2603'
         message = u'Go away \u2603'
-        template = u'{email}\n{subject}\n{contents}'
+        days = 1
+        template = u'{email}\n{subject}\n{contents}\n{days}'
         script = views._make_script(email_address,
                                     subject,
                                     message,
+                                    days,
                                     template=template)
         self.assertEqual(script.split(u'\n'),
                          [u'"nob\u2603dy@isotomadev.com"',
                           u'"My subject \u2603"',
-                          u'"Go away \u2603"'])
+                          u'"Go away \u2603"',
+                          u'1'])
 
 
 class TestSetAwayMessageScript(unittest.TestCase):
@@ -292,6 +301,7 @@ class TestActivate(unittest.TestCase):
         self.form.cleaned_data = {
             'subject': u'Test subject',
             'message': u'Message',
+            'days': 3,
             }
         self.form.is_valid.return_value = True
         self.make_script = mock.Mock()
@@ -304,7 +314,7 @@ class TestActivate(unittest.TestCase):
         self.assertEqual(result, self.form)
         self.assertEqual(self.make_script.call_args,
                          ((u'nobody@isotomadev.com', u'Test subject',
-                           u'Message'),
+                           u'Message', 3),
                           {})
                          )
         self.assertEqual(self.set_script.call_args,

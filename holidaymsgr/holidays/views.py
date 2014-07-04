@@ -81,11 +81,12 @@ def _sieve_quote(term):
     return u'"{term}"'.format(term=term)
 
 
-def _make_script(email_address, subject, message, handle=SCRIPT_NAME,
+def _make_script(email_address, subject, message, days, handle=SCRIPT_NAME,
                  template=AWAY_TEMPLATE):
     return template.format(contents=_sieve_quote(message),
                            subject=_sieve_quote(subject),
                            handle=_sieve_quote(handle),
+                           days=str(days),
                            email=_sieve_quote(email_address))
 
 
@@ -112,9 +113,10 @@ def _activate(request, sieve_client, form_cls=forms.MailForm,
     if mail_form.is_valid():
         message = mail_form.cleaned_data['message']
         subject = mail_form.cleaned_data['subject']
+        days = mail_form.cleaned_data['days']
         email_address = request.session['email']
 
-        script = make_script(email_address, subject, message)
+        script = make_script(email_address, subject, message, days)
         set_script(sieve_client, script)
 
     return mail_form
