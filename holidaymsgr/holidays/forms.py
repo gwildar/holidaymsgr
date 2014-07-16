@@ -12,7 +12,7 @@ class MailForm(forms.Form):
 
     subject = forms.CharField()
     message = forms.CharField(widget=forms.Textarea)
-    days = forms.IntegerField(min_value=1)
+    days = forms.IntegerField(min_value=1, initial=14)
     subject.widget.attrs = {'class': 'form-control'}
     message.widget.attrs = {'class': 'form-control'}
     days.widget.attrs = {'class': 'form-control'}

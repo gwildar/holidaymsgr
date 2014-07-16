@@ -5,6 +5,7 @@ Changelog for Vacation Manager
 ----------------
 
 - Hide password from error reporting.
+- Describe days better
 
 
 1.1 (2014-07-16)
