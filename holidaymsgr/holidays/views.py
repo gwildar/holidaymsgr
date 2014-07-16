@@ -7,6 +7,9 @@ from django.forms.util import ErrorList
 from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.shortcuts import  render
+
+from django.views.decorators.debug import sensitive_post_parameters, sensitive_variables
+
 import pkg_resources
 import sievelib.managesieve
 import sievelib.parser
@@ -50,6 +53,7 @@ def _validate_sieve_credentials(username, password,
     return None
 
 
+@sensitive_post_parameters("password")
 def index(request, form_cls=forms.LoginForm, render=render,
           validator=_validate_sieve_credentials):
     login = form_cls()
@@ -130,7 +134,7 @@ def _is_holiday_script_active(sieve_client):
 
     return active_script == SCRIPT_NAME
 
-
+@sensitive_variables("password")
 def message(request, form_cls=forms.MailForm,
             client_cls=sievelib.managesieve.Client,
             activate=_activate, is_active=_is_holiday_script_active,

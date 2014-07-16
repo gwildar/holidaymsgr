@@ -4,7 +4,7 @@ Changelog for Vacation Manager
 1.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Hide password from error reporting.
 
 
 1.1 (2014-07-16)
