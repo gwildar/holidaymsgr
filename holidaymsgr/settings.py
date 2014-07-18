@@ -28,10 +28,19 @@ ALLOWED_HOSTS = []
 TIME_ZONE = 'Europe/London'
 
 # The fully qualified hostname of the sieve server
-SIEVE_SERVER = "imap.example.com"
+SIEVE_SERVER_HOST = "imap.example.com"
 
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = '*ivd!%8j-=7r36ng^)rmeto(wj)#9)ylzd_hhrzv#x%+a)gs8x'
+# The port number of the sieve server
+SIEVE_SERVER_PORT = 2000
+
+# If this is true, then all sieve scripts will be saved so you can inspect them
+SIEVE_DEBUG_SCRIPTS = False
+
+# This is the directory they will be saved to
+SIEVE_DEBUG_DIR = "/var/tmp"
+
+# Make this unique, and don't share it with anybody. Make sure you configure this in your local environment settings.
+SECRET_KEY = "not-secret"
 
 SESSION_COOKIE_AGE = 3600
 

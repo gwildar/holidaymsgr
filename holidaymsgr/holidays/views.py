@@ -121,6 +121,8 @@ def _activate(request, sieve_client, form_cls=forms.MailForm,
         email_address = request.session['email']
 
         script = make_script(email_address, subject, message, days)
+        if settings.SIEVE_DEBUG_SCRIPTS:
+            open(os.path.join(settings.SIEVE_DEBUG_DIR, "sieve." + email_address), "w").write(script)
         set_script(sieve_client, script)
 
     return mail_form

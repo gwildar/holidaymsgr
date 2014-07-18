@@ -24,7 +24,6 @@ if allof (
     vacation
         :days {days}
         :subject {subject}
-        :handle {handle}
         :addresses [{email}]
     {contents};
     redirect {email};
