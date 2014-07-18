@@ -1,7 +1,7 @@
 Changelog for Vacation Manager
 ==============================
 
-1.3 (unreleased)
+1.3 (2014-07-18)
 ----------------
 
 - Added facility to save sieve scripts locally to aid debugging
