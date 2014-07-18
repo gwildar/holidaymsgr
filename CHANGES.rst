@@ -4,7 +4,8 @@ Changelog for Vacation Manager
 1.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added facility to save sieve scripts locally to aid debugging
+- Removed :handle from the script
 
 
 1.2 (2014-07-16)
