@@ -6,9 +6,3 @@ psycopg2
 sievelib
 django-json-settings
 django-stackhelper
-
-#-e git://github.com/isotoma/django-json-settings#egg=json_settings
-#-e git://github.com/isotoma/django-stackhelper#egg=stackhelper
--e .
-
-
