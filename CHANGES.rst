@@ -1,6 +1,12 @@
 Changelog for Vacation Manager
 ==============================
 
+1.5 (unreleased)
+----------------
+
+- Nothing changed yet.
+
+
 1.4 (2015-03-31)
 ----------------
 
