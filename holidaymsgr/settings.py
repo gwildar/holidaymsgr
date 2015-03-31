@@ -63,7 +63,6 @@ WEBSERVER = {
 GUNICORN = {
     "USER": "daemon",
     "PORT": "8000",
-    'WSGI': 'holidaymsgr.wsgi',
 }
 
 ###############################################################################
@@ -126,7 +125,10 @@ logging.config.dictConfig(LOGGING)
 from json_settings import *  # @UnusedWildImport
 
 # This is autocalculated. The script is written by setup.py
-GUNICORN['COMMAND'] = os.path.join(sys.prefix, "bin", "gunicorn")
+GUNICORN.setdefault('COMMAND', os.path.join(sys.prefix, "bin", "gunicorn"))
+GUNICORN.setdefault('WSGI', 'holidaymsgr.wsgi')
+GUNICORN.setdefault('WORKERS', '4')
+GUNICORN.setdefault('TIMEOUT', '120')
 
 TEMPLATE_DEBUG = DEBUG
 
