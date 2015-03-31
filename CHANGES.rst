@@ -1,7 +1,7 @@
 Changelog for Vacation Manager
 ==============================
 
-1.4 (unreleased)
+1.4 (2015-03-31)
 ----------------
 
 - Moved to adamite, lots of config changes for trusty
