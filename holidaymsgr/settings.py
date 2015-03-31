@@ -63,6 +63,7 @@ WEBSERVER = {
 GUNICORN = {
     "USER": "daemon",
     "PORT": "8000",
+    'WSGI': 'holidaymsgr.wsgi',
 }
 
 ###############################################################################
@@ -125,7 +126,7 @@ logging.config.dictConfig(LOGGING)
 from json_settings import *  # @UnusedWildImport
 
 # This is autocalculated. The script is written by setup.py
-GUNICORN['COMMAND'] = os.path.join(sys.prefix, "bin", "django")
+GUNICORN['COMMAND'] = os.path.join(sys.prefix, "bin", "gunicorn")
 
 TEMPLATE_DEBUG = DEBUG
 
